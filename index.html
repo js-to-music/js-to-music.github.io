@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>JS to music</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script src="https://unpkg.com/tone"></script>
+    <script src="https://unpkg.com/stacktrace-js@2.0.2/dist/stacktrace.min.js"></script>
+    <script type="module">
+        (async ({chrome, netscape}) => {
+
+            // add Safari polyfill if needed
+            if (!chrome && !netscape)
+                await import('https://unpkg.com/@ungap/custom-elements');
+
+            const {default: HighlightedCode} =
+                await import('https://unpkg.com/highlighted-code');
+
+            // bootstrap a theme through one of these names
+            // https://github.com/highlightjs/highlight.js/tree/main/src/styles
+            HighlightedCode.useTheme('github-dark');
+
+            example(1)
+        })(self);
+    </script>
+    <script src="main.js"></script>
+</head>
+<body>
+<div class="tools">
+    <div class="button" onclick="playMyMusic()" style="background-color: #C2426A; margin-right: 10px">
+        Воспроизвести
+    </div>
+    <div class="button" onclick="example(1)">
+        Пример
+    </div>
+    <div class="button" onclick="example(2)">
+        Ноты
+    </div>
+    <div class="button" onclick="example(3)">
+        Циклы
+    </div>
+    <div class="button" onclick="example(4)">
+        Условия
+    </div>
+    <div class="button" onclick="example(5)">
+        Функции
+    </div>
+</div>
+<textarea textarea is="highlighted-code"
+          cols="80" rows="12"
+          language="javascript" tab-size="2" id="music_code"
+          autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+
+>
+
+
+
+</textarea>
+</body>
+</html>
